@@ -1,4 +1,6 @@
 <div {{ attributes }}>
+    {% set randomNumber = this.randomNumber %}
+    
     {% if this.getError('min') %}
         <span class="{{ this.getError('min') ? 'has-error' : '' }}">{{ this.getError('min').message }}</span> 
     {% endif %}
@@ -21,7 +23,7 @@
     <br>
     Generating a number between {{min}} and {{max}} 
     <span data-loading>Loading</span>
-    <span data-loading="hide"><strong>{{ this.randomNumber }}</strong></span>
+    <span data-loading="hide"><strong>{{ randomNumber }}</strong></span>
 
     <button
         data-action="live#$render"
@@ -31,4 +33,7 @@
         data-action="live#action"
         data-action-name="resetMinMax(min={{min}}, max=10000)"
     >Reset min max</button>
+    
+    {{component('child', {randomNumber: randomNumber})}}
+
 </div>

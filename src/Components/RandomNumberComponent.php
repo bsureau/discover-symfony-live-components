@@ -10,6 +10,7 @@ use Symfony\UX\LiveComponent\DefaultActionTrait;
 use Symfony\UX\LiveComponent\Attribute\LiveAction;
 use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 use Symfony\UX\LiveComponent\ValidatableComponentTrait;
+
 #[AsLiveComponent('random_number')]
 class RandomNumberComponent
 {
