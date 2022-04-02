@@ -1,18 +1,24 @@
 <div {{ attributes }}>
+    {% if this.getError('min') %}
+        <span class="{{ this.getError('min') ? 'has-error' : '' }}">{{ this.getError('min').message }}</span> 
+    {% endif %}
     <input
         type="number"
         value={{min}}
         data-model="min"
         data-action="change->live#update"
     >
-
+    <br>
+    {% if this.getError('max') %}
+        <span class="{{ this.getError('max') ? 'has-error' : '' }}">{{ this.getError('max').message }}</span> 
+    {% endif %}
     <input
         type="number"
         value={{max}}
         data-model="max"
         data-action="change->live#update"
     >
-
+    <br>
     Generating a number between {{min}} and {{max}} 
     <span data-loading>Loading</span>
     <span data-loading="hide"><strong>{{ this.randomNumber }}</strong></span>
