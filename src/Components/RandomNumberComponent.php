@@ -2,6 +2,7 @@
 
 namespace App\Components;
 
+use Symfony\UX\LiveComponent\Attribute\LiveProp;
 use Symfony\UX\LiveComponent\DefaultActionTrait;
 use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 
@@ -11,8 +12,14 @@ class RandomNumberComponent
 {
     use DefaultActionTrait;
 
+    #[LiveProp(writable:true)]
+    public int $min = 0;
+    
+    #[LiveProp(writable:true)]
+    public int $max = 1000;
+
     public function getRandomNumber(): int
     {
-        return rand(0, 1000);
+        return rand($this->min, $this->max);
     }
 }

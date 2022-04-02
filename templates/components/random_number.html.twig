@@ -1,5 +1,20 @@
 <div {{ attributes }}>
-    Generating a number between 0 and 1000
+
+    <input
+        type="number"
+        value={{min}}
+        data-model="min"
+        data-action="change->live#update"
+    >
+
+    <input
+        type="number"
+        value={{max}}
+        data-model="max"
+        data-action="change->live#update"
+    >
+
+    Generating a number between {{min}} and {{max}}
     <strong>{{ this.randomNumber }}</strong>
 
     <button
