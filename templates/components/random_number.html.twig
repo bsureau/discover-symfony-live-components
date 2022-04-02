@@ -1,5 +1,4 @@
 <div {{ attributes }}>
-
     <input
         type="number"
         value={{min}}
@@ -14,8 +13,9 @@
         data-action="change->live#update"
     >
 
-    Generating a number between {{min}} and {{max}}
-    <strong>{{ this.randomNumber }}</strong>
+    Generating a number between {{min}} and {{max}} 
+    <span data-loading>Loading</span>
+    <span data-loading="hide"><strong>{{ this.randomNumber }}</strong></span>
 
     <button
         data-action="live#$render"
